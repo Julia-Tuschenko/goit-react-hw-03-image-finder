@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
-import css from './index';
+import styles from './index';
 
 export default class Searchbar extends Component {
   state = {
@@ -24,17 +24,17 @@ export default class Searchbar extends Component {
 
   render() {
     return (
-      <header className={css.Searchbar}>
-        <form className={css.SearchForm} onSubmit={this.handleSubmit}>
-          <button type="submit" className={css.SearchFormButton}>
-            <span className={css.SearchFormButtonLabel}>Search</span>
+      <header className={styles.Searchbar}>
+        <form className={styles.SearchForm} onSubmit={this.handleSubmit}>
+          <button type="submit" className={styles.SearchFormButton}>
+            <span className={styles.SearchFormButtonLabel}>Search</span>
           </button>
 
           <input
-            className={css.SearchFormInput}
+            className={styles.SearchFormInput}
             type="text"
-            autocomplete="off"
-            autofocus
+            autoComplete="off"
+            autoFocus
             placeholder="Search images and photos"
             value={this.state.artName}
             onChange={this.handleNameChange}

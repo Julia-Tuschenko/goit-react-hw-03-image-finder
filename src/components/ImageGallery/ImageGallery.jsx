@@ -1,11 +1,11 @@
 import React from 'react';
 import ImageGalleryItem from '../ImageGalleryItem/index';
-import css from './index';
+import styles from './index';
 import PropTypes from 'prop-types';
 
 const ImageGallery = ({ pictures, bigImage }) => {
   return (
-    <ul className={css.ImageGallery}>
+    <ul className={styles.ImageGallery}>
       {pictures.map(({ id, webformatURL, largeImageURL }) => {
         const handleItemClick = () => bigImage(largeImageURL);
 

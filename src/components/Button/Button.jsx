@@ -1,9 +1,9 @@
-import css from './index';
+import styles from './index';
 import PropTypes from 'prop-types';
 
 const Button = ({ onClick }) => {
   return (
-    <button className={css.Button} type="button" onClick={onClick}>
+    <button className={styles.Button} type="button" onClick={onClick}>
       Load more
     </button>
   );

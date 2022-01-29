@@ -6,7 +6,7 @@ import ImageGallery from '../ImageGallery/index';
 import Button from '../Button/index';
 import Loader from '../Loader/index';
 import Modal from '../Modal/index';
-import css from './index';
+import styles from './index';
 import { ToastContainer } from 'react-toastify';
 import PropTypes from 'prop-types';
 
@@ -76,7 +76,7 @@ export default class App extends Component {
       this.state;
 
     return (
-      <div className={css.App}>
+      <div className={styles.App}>
         <Searchbar onSubmit={this.handleFormSubmit} />
 
         {error && <h1>{error}</h1>}
