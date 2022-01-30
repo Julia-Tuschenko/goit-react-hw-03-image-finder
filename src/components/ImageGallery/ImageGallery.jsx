@@ -1,6 +1,6 @@
 import React from 'react';
 import ImageGalleryItem from '../ImageGalleryItem/index';
-import styles from './index';
+import styles from './ImageGallery.module.css';
 import PropTypes from 'prop-types';
 
 const ImageGallery = ({ pictures, bigImage }) => {

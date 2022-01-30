@@ -1,7 +1,8 @@
 import { Component } from 'react';
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
-import styles from './index';
+import styles from './Searchbr.module.css';
+import { ImSearch } from 'react-icons/im';
 
 export default class Searchbar extends Component {
   state = {
@@ -27,7 +28,9 @@ export default class Searchbar extends Component {
       <header className={styles.Searchbar}>
         <form className={styles.SearchForm} onSubmit={this.handleSubmit}>
           <button type="submit" className={styles.SearchFormButton}>
-            <span className={styles.SearchFormButtonLabel}>Search</span>
+            <span className={styles.SearchFormButtonLabel}>
+              <ImSearch /> Search
+            </span>
           </button>
 
           <input
@@ -48,25 +51,3 @@ export default class Searchbar extends Component {
 Searchbar.protoType = {
   artName: PropTypes.string,
 };
-
-// const Searchbar = (onSubmit) => {
-//     return (
-//     <header class="searchbar">
-//     <form class="form">
-//         <button type="submit" class="button">
-//         <span class="button-label">Search</span>
-//         </button>
-
-//         <input
-//         class="input"
-//         type="text"
-//         autocomplete="off"
-//         autofocus
-//         placeholder="Search images and photos"
-//         />
-//     </form>
-//     </header>
-//     );
-//   };
-
-//   export default Searchbar;

@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import searchApi from '../../services/searchApi';
 import 'react-toastify/dist/ReactToastify.css';
 import Searchbar from '../Searchbar/index';
@@ -6,7 +6,7 @@ import ImageGallery from '../ImageGallery/index';
 import Button from '../Button/index';
 import Loader from '../Loader/index';
 import Modal from '../Modal/index';
-import styles from './index';
+import styles from './App.module.css';
 import { ToastContainer } from 'react-toastify';
 import PropTypes from 'prop-types';
 
@@ -68,7 +68,7 @@ export default class App extends Component {
   };
 
   handleFormSubmit = artName => {
-    this.setState({ artName });
+    this.setState({ artName: artName, page: 1, pictures: [], error: null });
   };
 
   render() {

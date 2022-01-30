@@ -1,4 +1,4 @@
-import styles from './index';
+import styles from './Button.module.css';
 import PropTypes from 'prop-types';
 
 const Button = ({ onClick }) => {
