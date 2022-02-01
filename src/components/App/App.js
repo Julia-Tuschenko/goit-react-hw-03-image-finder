@@ -71,14 +71,6 @@ export default class App extends Component {
     this.setState({ artName: artName, page: 1, pictures: [], error: null });
   };
 
-  // handleNextPage = () => {
-  //   this.setState(({ page }) => {
-  //     return {
-  //       page: page + 1,
-  //     };
-  //   });
-  // };
-
   render() {
     const { pictures, isLoading, error, showModal, largeImage, imgTags } =
       this.state;
