@@ -71,11 +71,18 @@ export default class App extends Component {
     this.setState({ artName: artName, page: 1, pictures: [], error: null });
   };
 
+  // handleNextPage = () => {
+  //   this.setState(({ page }) => {
+  //     return {
+  //       page: page + 1,
+  //     };
+  //   });
+  // };
+
   render() {
-    const { pictures, isLoading, error, showModal, largeImage, imgTags, page } =
+    const { pictures, isLoading, error, showModal, largeImage, imgTags } =
       this.state;
-    const notLastPage = pictures.length / page === 12;
-    const btnStop = pictures.length > 0 && !isLoading && notLastPage;
+    const btnEnable = pictures.length > 11 && !isLoading;
 
     return (
       <div className={styles.App}>
@@ -85,7 +92,7 @@ export default class App extends Component {
 
         <ImageGallery pictures={pictures} bigImage={this.bigImage} />
         {isLoading && <Loader />}
-        {btnStop && <Button onClick={this.fetchPictures} />}
+        {btnEnable && <Button onClick={this.fetchPictures} />}
         {showModal && (
           <Modal showModal={this.bigImage}>
             <img src={largeImage} alt={imgTags} />
