@@ -72,8 +72,10 @@ export default class App extends Component {
   };
 
   render() {
-    const { pictures, isLoading, error, showModal, largeImage, imgTags } =
+    const { pictures, isLoading, error, showModal, largeImage, imgTags, page } =
       this.state;
+    const notLastPage = pictures.length / page === 12;
+    const btnStop = pictures.length > 0 && !isLoading && notLastPage;
 
     return (
       <div className={styles.App}>
@@ -83,9 +85,7 @@ export default class App extends Component {
 
         <ImageGallery pictures={pictures} bigImage={this.bigImage} />
         {isLoading && <Loader />}
-        {pictures.length > 11 && !isLoading && (
-          <Button onClick={this.fetchPictures} />
-        )}
+        {btnStop && <Button onClick={this.fetchPictures} />}
         {showModal && (
           <Modal showModal={this.bigImage}>
             <img src={largeImage} alt={imgTags} />
