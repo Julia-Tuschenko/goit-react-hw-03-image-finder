@@ -24,10 +24,16 @@ export default class App extends Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.artName !== this.state.artName) {
+    const newName = prevState.artName;
+    const oldName = this.state.artName;
+
+    const oldPage = this.state.page;
+    const newPage = prevState.page;
+
+    if (newName !== oldName) {
       this.fetchPictures();
     }
-    if (this.state.page !== 2 && prevState.page !== this.state.page) {
+    if (oldPage !== 2 && newPage !== oldPage) {
       window.scrollTo({
         top: document.documentElement.scrollHeight,
         behavior: 'smooth',
