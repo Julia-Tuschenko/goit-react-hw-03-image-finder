@@ -17,7 +17,7 @@ export default class Searchbar extends Component {
     event.preventDefault();
 
     if (this.state.artName.trim() === '') {
-      return toast('Очень смешно, но с названием будет попроще!');
+      return toast('Enter a name');
     }
     this.props.onSubmit(this.state.artName);
     this.setState({ artName: '' });

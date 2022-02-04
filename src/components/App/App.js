@@ -9,6 +9,7 @@ import Modal from '../Modal/index';
 import styles from './App.module.css';
 import { ToastContainer } from 'react-toastify';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 
 export default class App extends Component {
   state = {
@@ -63,7 +64,7 @@ export default class App extends Component {
           page: prevState.page + 1,
         }));
       })
-      .catch(error => this.setState({ error: 'Picture not found' }))
+      .catch(error => this.setState({ error: toast('Picture not found') }))
       .finally(() => this.setState({ isLoading: false }));
   };
 
@@ -74,7 +75,7 @@ export default class App extends Component {
   render() {
     const { pictures, isLoading, error, showModal, largeImage, imgTags } =
       this.state;
-    const btnEnable = pictures.length > 11 && !isLoading;
+    const btnEnable = pictures.length > 0 && !isLoading && error === null;
 
     return (
       <div className={styles.App}>
