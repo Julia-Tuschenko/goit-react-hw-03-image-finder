@@ -21,6 +21,7 @@ export default class App extends Component {
     error: '',
     showModal: false,
     isLoading: false,
+    totalLengh: 0,
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -49,7 +50,6 @@ export default class App extends Component {
 
   bigImage = (largeImage = '') => {
     this.setState({ largeImage });
-
     this.toggleModal();
   };
 
@@ -68,6 +68,7 @@ export default class App extends Component {
         this.setState(prevState => ({
           pictures: [...prevState.pictures, ...pictures],
           page: prevState.page + 1,
+          totalLengh: pictures.length,
         }));
       })
       .catch(error => this.setState({ error: toast('Picture not found') }))
@@ -79,9 +80,17 @@ export default class App extends Component {
   };
 
   render() {
-    const { pictures, isLoading, error, showModal, largeImage, imgTags } =
-      this.state;
-    const btnEnable = pictures.length > 0 && !isLoading && error === null;
+    const {
+      pictures,
+      isLoading,
+      error,
+      showModal,
+      largeImage,
+      imgTags,
+      totalLengh,
+    } = this.state;
+    const btnEnable =
+      pictures.length > 0 && !isLoading && error === null && totalLengh > 0;
 
     return (
       <div className={styles.App}>
